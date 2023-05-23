@@ -1,9 +1,9 @@
-  import pandas as pd
-  import seaborn as sns
-  import matplotlib.pyplot as plt
+  import pandas as pd  
+  import seaborn as sns  
+  import matplotlib.pyplot as plt  
 
-  data=pd.read_excel(r'E:\桌面\marvel_dc_characters.xlsx')
-  print(len(data))
+  data=pd.read_excel(r'E:\桌面\marvel_dc_characters.xlsx')  
+  print(len(data))  
   cleaned=data.dropna()
   print(len(cleaned))
   sns.factorplot('Gender',data=cleaned,kind='count')

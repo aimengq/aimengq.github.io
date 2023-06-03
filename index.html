@@ -1,35 +1,40 @@
-    import pandas as pd
-    import seaborn as sns
-    import matplotlib.pyplot as plt
-
-    data=pd.read_excel(r'E:\桌面\marvel_dc_characters.xlsx')
-    print(len(data))
-    cleaned=data.dropna()
-    print(len(cleaned))
-    sns.factorplot('Gender',data=cleaned,kind='count')
-    plt.show()
-
-    frame=cleaned.set_index('Gender')
-    frame2=frame.loc['Agender']
-    print(frame2.head())
-    print(len(frame2))
-    ax=sns.factorplot('Alignment',data=cleaned,kind='count')
-    plt.show()
-    ax=savefig(r'E:\桌面\2.jpg')
-    fig=plt.figure(figsize=(15,4))
-    ax1=fig.add_subplot(1,2,1)
-    cleaned.Alignment[cleaned['Gender']=='Male'].value_counts().plot(kind='pie')
-    ax1.set_title('The Analysis of Male and Alignment')
-
-    male_alig=cleaned.Alignment[cleaned['Gender']=='Male'].value_counts()
-
-    ax2=fig.add_subplot(1,2,2)
-    cleanded.Alignment[cleaned['Gender']=='Female'].value_count().plot(kind='pie')
-    ax2.set_title('The Analysis of Female and Alignment')
-    female_alig=cleanded.Alignment[cleaned['Gender']=='Female'].value_counts()
-    fig.show()
-    fig.savefig(r'E:\桌面\3.jpg')
-
-    statistic_alig=pd.concat([male_alig,female_alig],axis=1)
-    statistic_alig.columns=['male_alig','female_alig']
-    print("The statistic of Alignment:\n",statistic_alig)
+#include<iostream>  
+using namespace std;   
+template<typename T1,typename T2,typename T3>   
+class sum 
+{ 
+    T1 x; 
+    T2 y; 
+    T3 z; 
+public: 
+    sum(T1 a,T2 b,T3 c) 
+    { 
+        x=a;y=b;z=c; 
+    } 
+    void gettersum() 
+    { 
+        cout<<x+y+z<<endl; 
+    } 
+    T1 getterx() 
+    { 
+        return x; 
+   } 
+    T2 gettery() 
+    { 
+        return y; 
+    } 
+    T3 getterz() 
+    { 
+        return z; 
+    } 
+}; 
+int main() 
+{ 
+    sum<double,double,double>a(1.4,1.7,1.3); 
+    cout<<a.getterx()<<","<<a.gettery()<<","<<a.getterz()<<"三个数之和为:"; 
+    a.gettersum(); 
+    sum<int,double,float>b(5,2.2,4.7); 
+      cout<<b.getterx()<<","<<b.gettery()<<","<<b.getterz()<<"三个数之和为:"; 
+      b.gettersum(); 
+     return 0; 
+}
